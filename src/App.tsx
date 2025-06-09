@@ -81,7 +81,9 @@ function App() {
       </AnimatePresence>
 
       <div className="min-h-screen bg-background text-foreground">
-        <ThemeToggle />
+        <div className="fixed top-4 right-4 z-50">
+          <ThemeToggle />
+        </div>
         {/* Hero Section */}
         <section className="section bg-gradient-to-br from-background to-muted min-h-[90vh] flex items-center">
           <div className="container">
@@ -98,7 +100,7 @@ function App() {
                   </span>
                 </div>
                 <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                  Ahmed Sultan
+                  Ahmed Alaa El-Din Sultan
                 </h1>
                 <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
                   Crafting beautiful and performant web experiences with modern
@@ -115,12 +117,12 @@ function App() {
                     <span>+20 111 123 6361</span>
                   </div>
                 </div>
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-4">
                   <a
                     href="https://github.com/Ahmedsultan09"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-primary"
+                    className="btn btn-primary flex-1 min-w-[120px] justify-center"
                   >
                     <Github className="w-4 h-4 mr-2" />
                     GitHub
@@ -129,14 +131,14 @@ function App() {
                     href="https://www.linkedin.com/in/ahmed-sultan09/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-primary"
+                    className="btn btn-primary flex-1 min-w-[120px] justify-center"
                   >
                     <Linkedin className="w-4 h-4 mr-2" />
                     LinkedIn
                   </a>
                   <a
                     href="mailto:asultan.dev@gmail.com"
-                    className="btn btn-secondary"
+                    className="btn btn-secondary flex-1 min-w-[120px] justify-center"
                   >
                     <Mail className="w-4 h-4 mr-2" />
                     Contact
@@ -144,7 +146,7 @@ function App() {
                   <a
                     href="/src/assets/ahmed-sultan-cv.pdf"
                     download
-                    className="btn btn-secondary"
+                    className="btn btn-secondary flex-1 min-w-[120px] justify-center"
                   >
                     <Download className="w-4 h-4 mr-2" />
                     Resume
