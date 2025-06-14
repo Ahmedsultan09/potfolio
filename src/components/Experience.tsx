@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Briefcase, GraduationCap, Award } from "lucide-react";
+import { Briefcase, Award } from "lucide-react";
 
 const experience = [
   {
@@ -40,16 +40,6 @@ const experience = [
       "Implemented a SPA structure for a seamless and efficient user interface",
       "Created a comprehensive system architecture and user flow to ensure optimal functionality and user experience",
     ],
-  },
-];
-
-const education = [
-  {
-    degree: "Bachelor's Degree in Computer Science",
-    school: "Faculty of Computer and Information Sciences",
-    period: "2018 - 2022",
-    description:
-      "Focused on web development, software engineering, and computer science fundamentals. Graduated with honors.",
   },
 ];
 
@@ -133,29 +123,6 @@ export function Experience() {
 
           {/* Education & Skills */}
           <div>
-            <h3 className="text-2xl font-semibold mb-6 flex items-center">
-              <GraduationCap className="w-6 h-6 mr-2" />
-              Education
-            </h3>
-            <div className="space-y-6 mb-8">
-              {education.map((edu, index) => (
-                <motion.div
-                  key={edu.degree}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="card p-6"
-                >
-                  <h4 className="text-xl font-semibold mb-1">{edu.degree}</h4>
-                  <p className="text-muted-foreground mb-2">{edu.school}</p>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {edu.period}
-                  </p>
-                  <p className="text-muted-foreground">{edu.description}</p>
-                </motion.div>
-              ))}
-            </div>
-
             <h3 className="text-2xl font-semibold mb-6 flex items-center">
               <Award className="w-6 h-6 mr-2" />
               Skills

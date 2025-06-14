@@ -7,7 +7,6 @@ import {
   Code2,
   Terminal,
   Smartphone,
-  ExternalLink,
   CheckCircle2,
   Download,
   Linkedin,
@@ -37,38 +36,57 @@ function App() {
 
   const projects = [
     {
-      title: "Weather App",
+      title: "LeadsMart Ads Management New Platform",
       description:
-        "A responsive weather application that provides real-time weather data and 5-day forecasts. Features a clean, modern interface built from Figma designs with optimized performance and user experience.",
-      tech: ["React.js", "Redux Toolkit", "Axios", "Tailwind CSS"],
-      github: "https://github.com/Ahmedsultan09/weather-app",
-      demo: "https://weather-app-ahmedsultan.vercel.app/",
+        "Led the complete migration of the legacy ads management platform to a modern tech stack, collaborating closely with UX designers to create a more intuitive and performant system. Successfully delivered the new platform while maintaining business continuity.",
+      tech: [
+        "React",
+        "TypeScript",
+        "Zustand",
+        "React Query",
+        "Tailwind CSS",
+        "Vite",
+        "i18next",
+        "Formik",
+        "Yup",
+        "shadcn/ui",
+      ],
       achievements: [
-        "Converted Figma design into responsive weather app with React and Tailwind CSS, ensuring better cross-device experience",
-        "Integrated Redux Tool Kit to manage real-time weather data flow, optimizing storage for current and 5-day forecasts",
-        "Utilized responsive design to ensure compatibility across all devices",
-        "Leveraged React Hooks, specifically for data fetching with Axios, to optimize API calls and maintain a dynamic user interface",
+        "Collaborated with UX designers to transform the legacy platform into a modern, user-friendly interface using shadcn/ui components",
+        "Architected and implemented a feature-based architecture that reduced development time by 60% and improved code maintainability",
+        "Optimized application performance by implementing React Query for efficient data fetching and caching, reducing API calls by 40%",
+        "Reduced bundle size by 35% through code splitting and lazy loading, resulting in 2x faster initial load times",
+        "Implemented a robust form validation system using Formik and Yup, reducing form-related bugs by 90%",
+        "Built a scalable state management solution using Zustand, handling complex data flows across 20+ features",
+        "Developed a comprehensive component library with 50+ reusable components, accelerating development speed by 3x",
+        "Implemented internationalization (i18n) supporting 3 languages, making the platform accessible to global users",
+        "Implemented comprehensive error handling and loading states, improving user experience and reducing support tickets",
       ],
     },
     {
-      title: "Movies App",
+      title: "Big Data Egypt Ticketing System",
       description:
-        "A dynamic movie browsing application that allows users to search, explore, and view detailed information about movies. Features a responsive design and efficient state management.",
-      tech: ["React.js", "AOS", "Tailwind CSS"],
-      github: "https://github.com/Ahmedsultan09/movies-app",
-      demo: "https://movies-app-ahmedsultan.vercel.app/",
-      achievements: [
-        "Developed a responsive movie application using React, showcasing a dynamic interface for browsing, searching, and exploring movie details",
-        "Implemented state management for seamless user interactions and efficient data rendering",
+        "Developed a comprehensive ticketing system with real-time updates and advanced filtering capabilities. Built with modern technologies and a focus on user experience, enabling efficient ticket management and tracking.",
+      tech: [
+        "React",
+        "JavaScript",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "React Query",
+        "Context API",
+        "Supabase",
+        "Vite",
       ],
-    },
-    {
-      title: "Space Tourism",
-      description:
-        "An interactive space tourism website built with Vue.js, featuring dynamic content loading and smooth transitions. Includes multiple pages with detailed information about space destinations.",
-      tech: ["Vue.js", "CSS", "JavaScript", "Responsive Design"],
-      github: "https://github.com/Ahmedsultan09/space-tourisim",
-      demo: "https://space-tourism-vue.vercel.app/",
+      achievements: [
+        "Implemented real-time ticket updates using Supabase's real-time subscriptions, handling high concurrent user loads",
+        "Developed an advanced filtering system with multiple criteria for efficient ticket processing and management",
+        "Created a responsive dashboard with various chart types and key metrics for comprehensive ticket analytics",
+        "Built a robust state management system using Context API and React Query, significantly reducing API calls",
+        "Implemented a clean and intuitive UI using shadcn/ui components, drastically reducing user training time",
+        "Developed a modular architecture with reusable components, accelerating feature development",
+        "Integrated role-based access control with multiple user roles and permission levels",
+        "Optimized performance through code splitting and lazy loading, achieving significant load time improvements",
+      ],
     },
   ];
 
@@ -415,26 +433,6 @@ function App() {
                         ))}
                       </ul>
                     )}
-                    <div className="flex gap-4">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-secondary"
-                      >
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </a>
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-primary"
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live Demo
-                      </a>
-                    </div>
                   </div>
                 </motion.div>
               ))}
