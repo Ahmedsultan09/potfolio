@@ -1,63 +1,58 @@
-# Frontend Developer Portfolio
+# Ahmed Sultan — Portfolio
 
-A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS. This portfolio showcases my skills, projects, and experience as a frontend developer.
+Colorful, motion-led personal portfolio built with React, TypeScript, Tailwind CSS, Framer Motion, and React Three Fiber.
 
 ## Features
 
-- 🎨 Modern and clean design
-- 📱 Fully responsive
-- ⚡ Built with Vite for fast development
-- 🎭 Smooth animations using Framer Motion
-- 🌙 Dark mode support
-- 🎯 Optimized for performance
+- Three.js hero with shader-framed portrait and gradient atmosphere
+- Featured projects: TactiSport, Maraqez, Printer Maintenance Ticketing
+- Experience timeline including TactiSport (part-time)
+- Dark / light theme, SEO meta tags, accessible landmarks
+- Content driven from `src/data/*`
 
-## Tech Stack
+## Tech stack
 
-- React
-- TypeScript
-- Tailwind CSS
+- React 19 + Vite 6 + TypeScript
+- Tailwind CSS 3
 - Framer Motion
-- Heroicons
-- React Intersection Observer
+- Three.js / `@react-three/fiber` / `@react-three/drei`
+- Lucide icons
 
-## Getting Started
-
-1. Clone the repository:
-
-```bash
-git clone <repository-url>
-cd my-portfolio
-```
-
-2. Install dependencies:
+## Getting started
 
 ```bash
 npm install
-```
-
-3. Start the development server:
-
-```bash
 npm run dev
 ```
 
-4. Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-## Building for Production
-
-To create a production build:
+Open [http://localhost:5173](http://localhost:5173).
 
 ```bash
 npm run build
+npm run preview
 ```
 
-The build files will be in the `dist` directory.
+## Content map
 
-## Customization
+| Content | File |
+|---------|------|
+| Profile / socials / resume | `src/data/profile.ts` |
+| Experience | `src/data/experience.ts` |
+| Projects | `src/data/projects.ts` |
+| Skills | `src/data/skills.ts` |
+| Courses | `src/data/courses.ts` |
+| Resume PDF | `public/ahmed-sultan.pdf` |
+| Portrait | `public/images/portrait.jpg` |
+| Project screenshots | `public/projects/**` |
 
-- Colors and theme can be customized in `tailwind.config.js`
-- Content can be modified in `src/App.tsx`
-- Add your own projects and information in the respective sections
+## Screenshots
+
+Refresh project media with:
+
+```bash
+npx playwright install chromium
+node scripts/capture-screenshots.mjs
+```
 
 ## License
 

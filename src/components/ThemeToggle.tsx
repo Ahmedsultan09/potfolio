@@ -6,14 +6,15 @@ export function ThemeToggle() {
 
   return (
     <button
+      type="button"
       onClick={toggleTheme}
-      className="fixed top-4 right-4 p-2 rounded-full bg-card hover:bg-accent transition-colors"
-      aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+      className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border/80 bg-[hsl(var(--surface))] text-foreground backdrop-blur-md transition hover:border-cyan/50"
+      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {theme === "light" ? (
-        <Moon className="w-5 h-5" />
+      {theme === "dark" ? (
+        <Sun className="h-4 w-4" aria-hidden />
       ) : (
-        <Sun className="w-5 h-5" />
+        <Moon className="h-4 w-4" aria-hidden />
       )}
     </button>
   );
