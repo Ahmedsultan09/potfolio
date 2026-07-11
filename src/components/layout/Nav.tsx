@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { navLinks, profile } from "../../data/profile";
+import { navLinks } from "../../data/profile";
 import { ThemeToggle } from "../ThemeToggle";
 import { cn } from "../../lib/utils";
 
