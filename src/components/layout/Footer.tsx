@@ -1,34 +1,19 @@
+import { ArrowUp } from "lucide-react";
 import { profile } from "../../data/profile";
 
 export function Footer() {
+  const year = new Intl.DateTimeFormat("en", { year: "numeric" }).format(new Date());
+
   return (
-    <footer className="border-t border-border/60 py-10">
-      <div className="container-page flex flex-col items-center justify-between gap-4 text-sm text-muted-foreground sm:flex-row">
+    <footer className="site-footer">
+      <div className="container-page flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
         <p>
-          © {new Date().getFullYear()} {profile.name}. Built with React, Three.js &
-          motion.
+          © {year} {profile.name}. Designed and built with intention.
         </p>
-        <div className="flex gap-4">
-          <a
-            href={profile.social.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground"
-          >
-            LinkedIn
-          </a>
-          <a
-            href={profile.social.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground"
-          >
-            GitHub
-          </a>
-          <a href={profile.resumeUrl} className="hover:text-foreground" download>
-            Resume
-          </a>
-        </div>
+        <a href="#top" className="back-to-top">
+          Back to Top
+          <ArrowUp className="h-4 w-4" aria-hidden="true" />
+        </a>
       </div>
     </footer>
   );

@@ -9,78 +9,91 @@ export function Nav() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "border-b border-border/60 bg-[hsl(var(--surface))] backdrop-blur-xl"
-          : "bg-transparent"
-      )}
-    >
-      <div className="container-page flex h-16 items-center justify-between">
-        <a
-          href="#top"
-          className="font-display text-lg font-bold tracking-tight text-foreground"
-        >
-          Sultan
-          <span className="gradient-text">.</span>
+    <header className={cn("site-nav", scrolled && "site-nav-scrolled")}>
+      <div className="container-page flex h-[4.75rem] items-center justify-between">
+        <a href="#top" className="brand-mark" aria-label="Ahmed Sultan, home">
+          <span>AS</span>
+          <span className="brand-mark-label">Portfolio</span>
         </a>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-foreground/75 transition hover:bg-muted/70 hover:text-foreground"
-            >
+        <nav
+          className="hidden items-center gap-1 lg:flex"
+          aria-label="Primary navigation"
+        >
+          {navLinks.map((link, index) => (
+            <a key={link.href} href={link.href} className="nav-link">
+              <span aria-hidden="true">0{index + 1}</span>
               {link.label}
             </a>
           ))}
-          <div className="ml-2">
-            <ThemeToggle />
-          </div>
+          <ThemeToggle />
         </nav>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <ThemeToggle />
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border/80 bg-[hsl(var(--surface))]"
-            aria-label={open ? "Close menu" : "Open menu"}
+            className="icon-button"
+            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
+            aria-controls="mobile-navigation"
+            onClick={() => setOpen((current) => !current)}
           >
-            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            {open ? (
+              <X className="h-5 w-5" aria-hidden="true" />
+            ) : (
+              <Menu className="h-5 w-5" aria-hidden="true" />
+            )}
           </button>
         </div>
       </div>
 
-      {open && (
+      <div
+        id="mobile-navigation"
+        className={cn("mobile-menu lg:hidden", open && "mobile-menu-open")}
+        aria-hidden={!open}
+      >
         <nav
-          className="border-t border-border/60 bg-[hsl(var(--surface))] backdrop-blur-xl md:hidden"
-          aria-label="Mobile"
+          className="container-page flex flex-col py-8"
+          aria-label="Mobile navigation"
         >
-          <div className="container-page flex flex-col gap-1 py-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="rounded-lg px-3 py-3 text-sm font-medium text-foreground/80"
-                onClick={() => setOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+          {navLinks.map((link, index) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="mobile-nav-link"
+              tabIndex={open ? 0 : -1}
+              onClick={() => setOpen(false)}
+            >
+              <span aria-hidden="true">0{index + 1}</span>
+              {link.label}
+            </a>
+          ))}
         </nav>
-      )}
+      </div>
     </header>
   );
 }

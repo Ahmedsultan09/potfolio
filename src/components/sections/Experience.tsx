@@ -1,55 +1,55 @@
+import { BriefcaseBusiness, MapPin } from "lucide-react";
 import { experience } from "../../data/experience";
 import { Section } from "../ui/Section";
 import { Chip } from "../ui/Chip";
-import { GradientText } from "../ui/GradientText";
 
 export function Experience() {
   return (
-    <Section id="experience">
-      <div className="mb-14 max-w-2xl">
-        <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-          Work <GradientText>Experience</GradientText>
-        </h2>
-        <p className="mt-3 text-muted-foreground">
-          Current full-time work at LeadsMart, plus part-time product work at TactiSport
-          and earlier roles in field ops and healthcare SaaS.
-        </p>
-      </div>
+    <Section id="experience" className="section-rule bg-contrast">
+      <div className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+        <div className="lg:sticky lg:top-28 lg:self-start">
+          <p className="section-kicker">02 / Experience</p>
+          <h2 className="section-title mt-6">
+            Built in the
+            <span className="font-editorial italic text-accent-strong"> real world.</span>
+          </h2>
+          <p className="section-intro">
+            Product work shaped by real users, deadlines, permissions, data, and teams.
+          </p>
+        </div>
 
-      <ol className="relative space-y-10 border-l border-border/80 pl-6 md:pl-8">
-        {experience.map((job) => (
-          <li key={job.id} className="relative">
-            <span
-              className="absolute -left-[1.9rem] top-1.5 h-3.5 w-3.5 rounded-full bg-gradient-to-br from-cyan via-amber to-magenta ring-4 ring-background md:-left-[2.15rem]"
-              aria-hidden
-            />
-            <div className="flex flex-wrap items-center gap-2">
-              <h3 className="font-display text-xl font-bold sm:text-2xl">
-                {job.title}
-              </h3>
-              <Chip>{job.type}</Chip>
-            </div>
-            <p className="mt-1 text-cyan">
-              {job.company} · {job.location}
-            </p>
-            <p className="text-sm text-muted-foreground">{job.period}</p>
-            <ul className="mt-4 space-y-2">
-              {job.description.map((item) => (
-                <li
-                  key={item}
-                  className="flex gap-3 text-sm leading-relaxed text-foreground/85"
-                >
-                  <span
-                    className="mt-2 h-1 w-1 shrink-0 rounded-full bg-amber"
-                    aria-hidden
-                  />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ol>
+        <ol className="experience-list">
+          {experience.map((job, index) => (
+            <li key={job.id} className="experience-item">
+              <div className="experience-meta">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span>{job.period}</span>
+              </div>
+              <div className="mt-5 flex flex-wrap items-start justify-between gap-4">
+                <div>
+                  <h3>{job.title}</h3>
+                  <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+                    <span className="flex items-center gap-1.5 font-semibold text-foreground">
+                      <BriefcaseBusiness className="h-4 w-4" aria-hidden="true" />
+                      {job.company}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="h-4 w-4" aria-hidden="true" />
+                      {job.location}
+                    </span>
+                  </p>
+                </div>
+                <Chip>{job.type}</Chip>
+              </div>
+              <ul className="impact-list mt-6">
+                {job.description.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ol>
+      </div>
     </Section>
   );
 }

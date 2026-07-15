@@ -1,4 +1,4 @@
-# Ahmed Sultan — Portfolio
+# Ahmed Sultan Portfolio Redesign
 
 Colorful, motion-led personal portfolio built with React, TypeScript, Tailwind CSS, Framer Motion, and React Three Fiber.
 

@@ -9,8 +9,8 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outDir = path.resolve(__dirname, "../public/projects/tactisport");
 
-const EMAIL = "mostafa@tacti-sport.com";
-const PASSWORD = "tactisport@2026";
+const EMAIL = process.env.TACTISPORT_EMAIL;
+const PASSWORD = process.env.TACTISPORT_PASSWORD;
 
 async function shot(page, name) {
   const file = path.join(outDir, name);
@@ -19,6 +19,10 @@ async function shot(page, name) {
 }
 
 async function main() {
+  if (!EMAIL || !PASSWORD) {
+    throw new Error("Set TACTISPORT_EMAIL and TACTISPORT_PASSWORD before running this script.");
+  }
+
   await mkdir(outDir, { recursive: true });
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({

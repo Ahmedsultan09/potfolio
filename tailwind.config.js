@@ -38,10 +38,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        cyan: "hsl(var(--cyan))",
-        amber: "hsl(var(--amber))",
-        magenta: "hsl(var(--magenta))",
-        navy: "hsl(var(--navy))",
+        ink: "hsl(var(--ink))",
+        paper: "hsl(var(--paper))",
+        signal: "hsl(var(--signal))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -49,37 +48,10 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["Outfit", "system-ui", "sans-serif"],
-        display: ["Syne", "system-ui", "sans-serif"],
-      },
-      keyframes: {
-        fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
-        slideUp: {
-          "0%": { transform: "translateY(24px)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
-        shimmer: {
-          "0%": { backgroundPosition: "0% 50%" },
-          "100%": { backgroundPosition: "100% 50%" },
-        },
-      },
-      animation: {
-        "fade-in": "fadeIn 0.5s ease-in-out",
-        "slide-up": "slideUp 0.6s ease-out",
-        float: "float 6s ease-in-out infinite",
-        shimmer: "shimmer 8s ease infinite",
-      },
-      backgroundSize: {
-        "200%": "200% 200%",
+        sans: ["Space Grotesk", "sans-serif"],
+        editorial: ["Instrument Serif", "serif"],
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 };

@@ -4,15 +4,21 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outDir = path.resolve(__dirname, "../public/projects/tactisport");
+const email = process.env.TACTISPORT_EMAIL;
+const password = process.env.TACTISPORT_PASSWORD;
 
 async function main() {
+  if (!email || !password) {
+    throw new Error("Set TACTISPORT_EMAIL and TACTISPORT_PASSWORD before running this script.");
+  }
+
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 
   await page.goto("https://app.tactisport.ai/", { waitUntil: "domcontentloaded", timeout: 90000 });
   await page.waitForTimeout(1500);
-  await page.locator('input[type="email"], input[name="email"]').first().fill("mostafa@tacti-sport.com");
-  await page.locator('input[type="password"]').first().fill("tactisport@2026");
+  await page.locator('input[type="email"], input[name="email"]').first().fill(email);
+  await page.locator('input[type="password"]').first().fill(password);
   await page.locator('button[type="submit"]').first().click();
   await page.waitForTimeout(5000);
   console.log("logged in", page.url());

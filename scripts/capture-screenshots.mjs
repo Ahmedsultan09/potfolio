@@ -9,6 +9,8 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
+const tactisportEmail = process.env.TACTISPORT_EMAIL;
+const tactisportPassword = process.env.TACTISPORT_PASSWORD;
 
 const shots = [
   {
@@ -104,8 +106,13 @@ async function main() {
       .locator('input[type="password"], input[name="password"]')
       .first();
     if ((await email.count()) && (await password.count())) {
-      await email.fill("mostafa@tacti-sport.com");
-      await password.fill("tactisport@2026");
+      if (!tactisportEmail || !tactisportPassword) {
+        throw new Error(
+          "Set TACTISPORT_EMAIL and TACTISPORT_PASSWORD before capturing authenticated pages.",
+        );
+      }
+      await email.fill(tactisportEmail);
+      await password.fill(tactisportPassword);
       const submit = page
         .locator('button[type="submit"], button:has-text("Sign"), button:has-text("Log")')
         .first();

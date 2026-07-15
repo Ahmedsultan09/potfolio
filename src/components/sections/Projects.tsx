@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { projects, type Project } from "../../data/projects";
 import { Section } from "../ui/Section";
 import { Chip } from "../ui/Chip";
 import { Button } from "../ui/Button";
-import { GradientText } from "../ui/GradientText";
 import { cn } from "../../lib/utils";
 
 function ScreenshotCarousel({ project }: { project: Project }) {
@@ -13,126 +12,119 @@ function ScreenshotCarousel({ project }: { project: Project }) {
   if (!shots.length) return null;
 
   const current = shots[index];
+  const showPrevious = () => setIndex((value) => (value - 1 + shots.length) % shots.length);
+  const showNext = () => setIndex((value) => (value + 1) % shots.length);
 
   return (
-    <div className="gradient-border min-w-0 w-full max-w-full">
-      <div className="gradient-border-inner overflow-hidden">
-        <div className="relative flex aspect-[16/10] max-h-[min(520px,70vh)] w-full items-center justify-center bg-[#0a1018]">
-          <img
-            src={current.src}
-            alt={current.alt}
-            className="max-h-full max-w-full object-contain"
-            loading="lazy"
-            onError={(e) => {
-              const target = e.currentTarget;
-              target.style.display = "none";
-              const fallback = target.nextElementSibling as HTMLElement | null;
-              if (fallback) fallback.classList.remove("hidden");
-            }}
-          />
-          <div className="hidden absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-navy/80 via-cyan/40 to-magenta/50 p-6 text-center text-white">
-            <p className="font-display text-2xl font-bold">{project.title}</p>
-            <p className="text-sm opacity-90">{project.tagline}</p>
-          </div>
+    <div
+      className="project-visual"
+      role="group"
+      aria-roledescription="carousel"
+      aria-label={`${project.title} screenshots`}
+    >
+      <div className="browser-bar" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+        <p>{project.id}.product</p>
+      </div>
+      <div className="relative aspect-[16/10] overflow-hidden bg-ink">
+        <img
+          src={current.src}
+          alt={current.alt}
+          className="h-full w-full object-contain"
+          width={1600}
+          height={1000}
+          loading="lazy"
+          decoding="async"
+        />
 
-          {shots.length > 1 && (
-            <>
-              <button
-                type="button"
-                className="absolute left-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-background/80 text-foreground backdrop-blur"
-                aria-label="Previous screenshot"
-                onClick={() =>
-                  setIndex((i) => (i - 1 + shots.length) % shots.length)
-                }
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </button>
-              <button
-                type="button"
-                className="absolute right-3 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-background/80 text-foreground backdrop-blur"
-                aria-label="Next screenshot"
-                onClick={() => setIndex((i) => (i + 1) % shots.length)}
-              >
-                <ChevronRight className="h-4 w-4" />
-              </button>
-              <div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-1.5">
-                {shots.map((shot, i) => (
-                  <button
-                    key={shot.src}
-                    type="button"
-                    aria-label={`Show screenshot ${i + 1}`}
-                    className={cn(
-                      "h-1.5 w-1.5 rounded-full transition",
-                      i === index ? "bg-cyan w-4" : "bg-white/50"
-                    )}
-                    onClick={() => setIndex(i)}
-                  />
-                ))}
-              </div>
-            </>
-          )}
-        </div>
+        {shots.length > 1 && (
+          <div className="carousel-controls">
+            <button
+              type="button"
+              className="carousel-button"
+              aria-label={`Show previous ${project.title} screenshot`}
+              onClick={showPrevious}
+            >
+              <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+            </button>
+            <p className="carousel-status" aria-live="polite" aria-atomic="true">
+              <span className="sr-only">Screenshot </span>
+              {String(index + 1).padStart(2, "0")} / {String(shots.length).padStart(2, "0")}
+            </p>
+            <button
+              type="button"
+              className="carousel-button"
+              aria-label={`Show next ${project.title} screenshot`}
+              onClick={showNext}
+            >
+              <ChevronRight className="h-4 w-4" aria-hidden="true" />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-function ProjectBlock({ project, reverse }: { project: Project; reverse?: boolean }) {
+function ProjectBlock({ project, index }: { project: Project; index: number }) {
   return (
-    <article
-      className={cn(
-        "grid min-w-0 items-center gap-8 lg:grid-cols-2 lg:gap-12",
-        reverse && "lg:[&>*:first-child]:order-2"
-      )}
-    >
-      <div className="min-w-0">
-        <ScreenshotCarousel project={project} />
+    <article className="project-block">
+      <div className="project-heading">
+        <div>
+          <p className="project-number">Case Study / {String(index + 1).padStart(2, "0")}</p>
+          <h3>{project.title}</h3>
+        </div>
+        <p className="project-tagline">{project.tagline}</p>
       </div>
 
-      <div className="min-w-0">
-        {project.featured && (
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.18em] text-amber">
-            Flagship project
-          </span>
-        )}
-        <h3 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
-          {project.title}
-        </h3>
-        <p className="mt-2 text-lg text-cyan">{project.tagline}</p>
-        <p className="mt-4 text-muted-foreground">{project.description}</p>
+      <ScreenshotCarousel project={project} />
 
-        <ul className="mt-6 space-y-2.5">
-          {project.highlights.map((item) => (
-            <li key={item} className="flex gap-3 text-sm text-foreground/90">
-              <span
-                className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-cyan to-magenta"
-                aria-hidden
-              />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
+      <dl className="project-metrics" aria-label={`${project.title} product facts`}>
+        {project.metrics.map((metric) => (
+          <div key={metric.label}>
+            <dd>{metric.value}</dd>
+            <dt>{metric.label}</dt>
+          </div>
+        ))}
+      </dl>
 
-        <div className="mt-5 flex flex-wrap gap-2">
-          {project.tech.map((tech) => (
-            <Chip key={tech}>{tech}</Chip>
-          ))}
+      <div className="project-details">
+        <div>
+          <p className="detail-label">The Product</p>
+          <p className="max-w-xl text-base leading-7 text-muted-foreground">
+            {project.description}
+          </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {project.tech.map((tech) => (
+              <Chip key={tech}>{tech}</Chip>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-6 flex flex-wrap gap-3">
-          {project.links.map((link) => (
-            <Button
-              key={link.href}
-              as="a"
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="secondary"
-            >
-              {link.label}
-              <ExternalLink className="h-3.5 w-3.5" aria-hidden />
-            </Button>
-          ))}
+        <div>
+          <p className="detail-label">My Impact</p>
+          <ul className="impact-list">
+            {project.highlights.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <div className="mt-7 flex flex-wrap gap-3">
+            {project.links.map((link) => (
+              <Button
+                key={link.href}
+                as="a"
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="secondary"
+              >
+                {link.label}
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </Button>
+            ))}
+          </div>
         </div>
       </div>
     </article>
@@ -141,20 +133,24 @@ function ProjectBlock({ project, reverse }: { project: Project; reverse?: boolea
 
 export function Projects() {
   return (
-    <Section id="projects">
-      <div className="mb-14 max-w-2xl">
-        <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-          Featured <GradientText>Projects</GradientText>
-        </h2>
-        <p className="mt-3 text-muted-foreground">
-          Production products across ads & lead generation, sports analytics, EdTech, and
-          field-service operations.
-        </p>
+    <Section id="projects" className="section-rule">
+      <div className="section-heading-grid">
+        <p className="section-kicker">01 / Selected Work</p>
+        <div>
+          <h2 className="section-title">
+            Products with
+            <span className="font-editorial italic text-accent-strong"> proof,</span> not polish alone.
+          </h2>
+          <p className="section-intro">
+            Production work across advertising, football analytics, and field operations.
+            Each product solves a different kind of complexity.
+          </p>
+        </div>
       </div>
 
-      <div className="space-y-24">
-        {projects.map((project, i) => (
-          <ProjectBlock key={project.id} project={project} reverse={i % 2 === 1} />
+      <div className={cn("mt-20", projects.length > 1 && "space-y-28 lg:space-y-36")}>
+        {projects.map((project, index) => (
+          <ProjectBlock key={project.id} project={project} index={index} />
         ))}
       </div>
     </Section>

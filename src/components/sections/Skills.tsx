@@ -1,33 +1,37 @@
 import { skillGroups } from "../../data/skills";
 import { Section } from "../ui/Section";
-import { Chip } from "../ui/Chip";
-import { GradientText } from "../ui/GradientText";
 
 export function Skills() {
   return (
-    <Section id="skills">
-      <div className="mb-14 max-w-2xl">
-        <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-          Skills & <GradientText>Toolkit</GradientText>
-        </h2>
-        <p className="mt-3 text-muted-foreground">
-          A focused stack for building colorful, data-heavy product experiences.
-        </p>
+    <Section id="skills" className="section-rule">
+      <div className="section-heading-grid">
+        <p className="section-kicker">03 / Capabilities</p>
+        <div>
+          <h2 className="section-title">
+            A toolkit for
+            <span className="font-editorial italic text-accent-strong"> product depth.</span>
+          </h2>
+          <p className="section-intro">
+            Frontend craft backed by product architecture, data fluency, and systems thinking.
+          </p>
+        </div>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2">
-        {skillGroups.map((group) => (
-          <div
-            key={group.id}
-            className="rounded-2xl border border-border/70 bg-[hsl(var(--surface))] p-6 backdrop-blur-md"
-          >
-            <h3 className="font-display text-lg font-semibold">{group.title}</h3>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {group.items.map((item) => (
-                <Chip key={item}>{item}</Chip>
-              ))}
+      <div className="skill-grid">
+        {skillGroups.map((group, groupIndex) => (
+          <article key={group.id} className="skill-group">
+            <div className="flex items-baseline justify-between gap-4">
+              <h3>{group.title}</h3>
+              <span className="skill-number" aria-hidden="true">
+                {String(groupIndex + 1).padStart(2, "0")}
+              </span>
             </div>
-          </div>
+            <ul className="mt-8">
+              {group.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
         ))}
       </div>
     </Section>

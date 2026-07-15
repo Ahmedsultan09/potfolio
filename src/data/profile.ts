@@ -1,6 +1,6 @@
 export const profile = {
   name: "Ahmed Sultan",
-  title: "Frontend / Full-Stack Engineer",
+  title: "Frontend Engineer",
   headline:
     "I design and ship production web and mobile products — from lead-generation platforms and bilingual admin tools to data-rich dashboards — with React, TypeScript, and thoughtful UI systems.",
   summary:
@@ -21,6 +21,6 @@ export const navLinks = [
   { href: "#projects", label: "Projects" },
   { href: "#experience", label: "Experience" },
   { href: "#skills", label: "Skills" },
-  { href: "#courses", label: "Learning" },
+  { href: "#testimonials", label: "Teams" },
   { href: "#contact", label: "Contact" },
 ] as const;

@@ -1,60 +1,46 @@
-import { Download, Github, Linkedin, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 import { profile } from "../../data/profile";
 import { Section } from "../ui/Section";
-import { Button } from "../ui/Button";
-import { GradientText } from "../ui/GradientText";
 
 export function Contact() {
   return (
-    <Section id="contact">
-      <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-[hsl(var(--surface))] px-6 py-14 text-center backdrop-blur-md sm:px-12">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-70"
-          style={{ backgroundImage: "var(--gradient-mesh)" }}
-          aria-hidden
-        />
-        <div className="relative">
-          <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            Let&apos;s <GradientText>build something</GradientText>
+    <Section id="contact" className="contact-section">
+      <div className="contact-grid">
+        <div>
+          <p className="section-kicker text-current">06 / Start a Conversation</p>
+          <h2 className="contact-title">
+            Have a product that deserves
+            <span className="font-editorial italic"> better?</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Open to frontend and product engineering roles — especially SaaS, dashboards,
-            and visually rich web experiences.
-          </p>
+        </div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Button as="a" href={`mailto:${profile.email}`} variant="primary">
-              <Mail className="h-4 w-4" aria-hidden />
-              {profile.email}
-            </Button>
-            <Button as="a" href={profile.phoneHref} variant="secondary">
-              <Phone className="h-4 w-4" aria-hidden />
-              {profile.phone}
-            </Button>
-            <Button
-              as="a"
+        <div className="contact-action">
+          <p>
+            Open to frontend and product engineering roles, especially SaaS, dashboards,
+            and visually rich product experiences.
+          </p>
+          <a href={`mailto:${profile.email}`} className="contact-email">
+            <Mail className="h-5 w-5" aria-hidden="true" />
+            <span>{profile.email}</span>
+            <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
+          </a>
+          <div className="contact-socials">
+            <a
               href={profile.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              variant="secondary"
             >
-              <Linkedin className="h-4 w-4" aria-hidden />
+              <Linkedin className="h-4 w-4" aria-hidden="true" />
               LinkedIn
-            </Button>
-            <Button
-              as="a"
-              href={profile.social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="secondary"
-            >
-              <Github className="h-4 w-4" aria-hidden />
+            </a>
+            <a href={profile.social.github} target="_blank" rel="noopener noreferrer">
+              <Github className="h-4 w-4" aria-hidden="true" />
               GitHub
-            </Button>
-            <Button as="a" href={profile.resumeUrl} download variant="ghost">
-              <Download className="h-4 w-4" aria-hidden />
-              Download resume
-            </Button>
+            </a>
+            <a href={profile.resumeUrl} download>
+              Resume
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
           </div>
         </div>
       </div>
