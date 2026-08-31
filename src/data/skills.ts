@@ -7,7 +7,7 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
   {
     id: "frontend",
-    title: "Frontend",
+    title: "Web & mobile",
     items: [
       "React",
       "Next.js",
@@ -25,7 +25,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     id: "state-data",
-    title: "State & Data",
+    title: "State & data",
     items: [
       "TanStack Query",
       "Zustand",
@@ -39,18 +39,18 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     id: "backend",
-    title: "Backend & Cloud",
+    title: "Backend & cloud",
     items: [
       "Supabase",
       "PostgreSQL",
-      "Auth & RLS",
+      "Authentication & row-level security",
       "AWS S3",
       "Realtime APIs",
     ],
   },
   {
     id: "ui-viz",
-    title: "UI & Visualization",
+    title: "UI & visualization",
     items: [
       "Design systems",
       "Radix UI",
@@ -58,7 +58,7 @@ export const skillGroups: SkillGroup[] = [
       "Ant Design",
       "D3.js",
       "Recharts",
-      "RTL / bilingual UI",
+      "English / Arabic & RTL layouts",
       "Accessibility",
     ],
   },

@@ -10,11 +10,12 @@ export function Experience() {
         <div className="lg:sticky lg:top-28 lg:self-start">
           <p className="section-kicker">02 / Experience</p>
           <h2 className="section-title mt-6">
-            Built in the
-            <span className="font-editorial italic text-accent-strong"> real world.</span>
+            Where I have
+            <span className="font-editorial italic text-accent-strong"> built and shipped.</span>
           </h2>
           <p className="section-intro">
-            Product work shaped by real users, deadlines, permissions, data, and teams.
+            Frontend roles across advertising, sports analytics, healthcare, and maintenance operations.
+            My work spans web platforms, mobile apps, and the systems behind their interfaces.
           </p>
         </div>
 

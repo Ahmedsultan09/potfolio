@@ -2,9 +2,9 @@ export const profile = {
   name: "Ahmed Sultan",
   title: "Frontend Engineer",
   headline:
-    "I design and ship production web and mobile products — from lead-generation platforms and bilingual admin tools to data-rich dashboards — with React, TypeScript, and thoughtful UI systems.",
+    "I build landing pages, portals, dashboards, and mobile apps across different industries with React, Next.js, TypeScript, and React Native.",
   summary:
-    "3+ years shipping production React and Next.js platforms — dashboards, RBAC, bilingual RTL products, and data-heavy operational tools.",
+    "Frontend engineer building landing pages, portals, dashboards, and mobile apps across industries, including role-based tools and English/Arabic interfaces.",
   email: "asultan.dev@gmail.com",
   phone: "+20 111 123 6361",
   phoneHref: "tel:+201111236361",

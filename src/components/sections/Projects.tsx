@@ -73,7 +73,7 @@ function ProjectBlock({ project, index }: { project: Project; index: number }) {
     <article className="project-block">
       <div className="project-heading">
         <div>
-          <p className="project-number">Case Study / {String(index + 1).padStart(2, "0")}</p>
+          <p className="project-number">Project / {String(index + 1).padStart(2, "0")}</p>
           <h3>{project.title}</h3>
         </div>
         <p className="project-tagline">{project.tagline}</p>
@@ -92,7 +92,7 @@ function ProjectBlock({ project, index }: { project: Project; index: number }) {
 
       <div className="project-details">
         <div>
-          <p className="detail-label">The Product</p>
+          <p className="detail-label">The product</p>
           <p className="max-w-xl text-base leading-7 text-muted-foreground">
             {project.description}
           </p>
@@ -104,7 +104,7 @@ function ProjectBlock({ project, index }: { project: Project; index: number }) {
         </div>
 
         <div>
-          <p className="detail-label">My Impact</p>
+          <p className="detail-label">My contribution</p>
           <ul className="impact-list">
             {project.highlights.map((item) => (
               <li key={item}>{item}</li>
@@ -135,15 +135,15 @@ export function Projects() {
   return (
     <Section id="projects" className="section-rule">
       <div className="section-heading-grid">
-        <p className="section-kicker">01 / Selected Work</p>
+        <p className="section-kicker">01 / Selected work</p>
         <div>
           <h2 className="section-title">
-            Products with
-            <span className="font-editorial italic text-accent-strong"> proof,</span> not polish alone.
+            Different domains.
+            <span className="font-editorial italic text-accent-strong"> Different interfaces.</span>
           </h2>
           <p className="section-intro">
-            Production work across advertising, football analytics, furniture showrooms, and field operations.
-            Each product solves a different kind of complexity.
+            These highlights are part of a broader body of work spanning landing pages, portals,
+            dashboards, and mobile apps. They cover advertising, sports analytics, furniture, and field service.
           </p>
         </div>
       </div>

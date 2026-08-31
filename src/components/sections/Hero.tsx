@@ -6,9 +6,9 @@ import { PortraitFrame } from "../ui/PortraitFrame";
 import { usePrefersReducedMotion } from "../../hooks/usePrefersReducedMotion";
 
 const proofPoints = [
-  { value: "3+", label: "Years shipping" },
-  { value: "+17", label: "Products featured" },
-  { value: "EN / AR", label: "Bilingual systems" },
+  { value: "2023", label: "Working since" },
+  { value: "Web + Mobile", label: "Product interfaces" },
+  { value: "EN / AR", label: "Bilingual interfaces" },
 ];
 
 export function Hero() {
@@ -28,14 +28,14 @@ export function Hero() {
         >
           <div className="eyebrow">
             <span className="availability-dot" aria-hidden="true" />
-            {profile.title} / Available for ambitious teams
+            {profile.title} / Open to opportunities
           </div>
 
           <h1 className="hero-title">
-            I turn complex products into interfaces people
+            I build web and mobile interfaces for
             <span className="font-editorial italic text-accent-strong">
               {" "}
-              understand.
+              complex products.
             </span>
           </h1>
 
@@ -54,7 +54,7 @@ export function Hero() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Button as="a" href="#projects" variant="primary">
-              Explore Selected Work
+              View projects
               <ArrowDownRight className="h-4 w-4" aria-hidden="true" />
             </Button>
             <Button
@@ -64,7 +64,7 @@ export function Hero() {
               variant="secondary"
             >
               <Download className="h-4 w-4" aria-hidden="true" />
-              Download Resume
+              Download CV
             </Button>
           </div>
 

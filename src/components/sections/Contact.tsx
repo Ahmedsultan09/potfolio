@@ -7,17 +7,17 @@ export function Contact() {
     <Section id="contact" className="contact-section">
       <div className="contact-grid">
         <div>
-          <p className="section-kicker text-current">06 / Start a Conversation</p>
+          <p className="section-kicker text-current">06 / Contact</p>
           <h2 className="contact-title">
-            Have a product that deserves
-            <span className="font-editorial italic"> better?</span>
+            Looking for a
+            <span className="font-editorial italic"> frontend engineer?</span>
           </h2>
         </div>
 
         <div className="contact-action">
           <p>
-            Open to frontend and product engineering roles, especially SaaS, dashboards,
-            and visually rich product experiences.
+            I am open to frontend and product engineering roles, particularly in SaaS,
+            dashboards, and interactive websites. Email me about your team and what you are building.
           </p>
           <a href={`mailto:${profile.email}`} className="contact-email">
             <Mail className="h-5 w-5" aria-hidden="true" />
@@ -38,7 +38,7 @@ export function Contact() {
               GitHub
             </a>
             <a href={profile.resumeUrl} download>
-              Resume
+              Download CV
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </div>

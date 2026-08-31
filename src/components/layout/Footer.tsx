@@ -8,10 +8,10 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container-page flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
         <p>
-          © {year} {profile.name}. Designed and built with intention.
+          © {year} {profile.name}. Built with React and TypeScript.
         </p>
         <a href="#top" className="back-to-top">
-          Back to Top
+          Back to top
           <ArrowUp className="h-4 w-4" aria-hidden="true" />
         </a>
       </div>

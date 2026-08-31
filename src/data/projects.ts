@@ -15,14 +15,14 @@ export const projects: Project[] = [
   {
     id: "leadsmart",
     title: "LeadsMart",
-    tagline: "Ads manager & lead-generation platform",
+    tagline: "Campaigns, leads, and analytics on web and mobile",
     description:
-      "Full-stack advertising and lead platform for advertisers - wallet-funded Facebook/TikTok campaigns, lead management, analytics, billing, and a React Native companion app.",
+      "An advertising platform where teams fund Facebook and TikTok campaigns through a wallet, manage leads, review analytics, and handle billing. A React Native companion app brings these workflows to mobile.",
     featured: true,
     metrics: [
-      { value: "Web + Mobile", label: "Product coverage" },
-      { value: "EN / AR", label: "Interface languages" },
-      { value: "2", label: "Campaign channels" },
+      { value: "Web + Mobile", label: "Connected apps" },
+      { value: "EN / AR", label: "Bilingual interfaces" },
+      { value: "2", label: "Facebook & TikTok" },
     ],
     tech: [
       "React",
@@ -40,24 +40,24 @@ export const projects: Project[] = [
       "Recharts",
     ],
     highlights: [
-      "Migrated and redesigned the ads-manager SPA with lazy-loaded routes and a reusable component system",
-      "Built leads dashboards, campaign flows, and performance analytics for advertisers and internal teams",
-      "Implemented RBAC-aware navigation and permission-gated product surfaces",
-      "Shipped React Native / Expo mobile app with near feature parity to web",
-      "Integrated bilingual EN/AR shell with RTL support across key product flows",
+      "Migrated and redesigned the ads-manager frontend with reusable components and lazy-loaded routes.",
+      "Built lead dashboards, campaign flows, and performance analytics for advertisers and internal teams.",
+      "Added role-based navigation and permission checks for product screens and actions.",
+      "Shipped a React Native and Expo app with nearly all of the web platform's features.",
+      "Built English/Arabic navigation and right-to-left layouts across key product flows.",
     ],
     links: [
-      { label: "Landing", href: "https://www.leads-mart.com/" },
-      { label: "Platform", href: "https://adsmanager-n.leads-mart.com/" },
+      { label: "Visit website", href: "https://www.leads-mart.com/" },
+      { label: "Open platform", href: "https://adsmanager-n.leads-mart.com/" },
     ],
     screenshots: [
       {
         src: "/projects/leadsmart/landing-hero-hd.png",
-        alt: "LeadsMart marketing landing page hero",
+        alt: "LeadsMart homepage introduction to its advertising platform",
       },
       {
         src: "/projects/leadsmart/landing-dashboard-hd.png",
-        alt: "LeadsMart landing page product dashboard preview",
+        alt: "LeadsMart homepage showing a preview of the product dashboard",
       },
       {
         src: "/projects/leadsmart/platform-dashboard-hd.png",
@@ -80,14 +80,14 @@ export const projects: Project[] = [
   {
     id: "tactisport",
     title: "TactiSport",
-    tagline: "AI-powered tactical football analytics",
+    tagline: "Interactive reports for tactical football analysis",
     description:
-      "Multi-role B2B SaaS delivering interactive tactical reports, pitch visualizations, scheduling, and admin tooling to coaches, clubs, and sports organizations.",
+      "A football analytics platform for coaches, clubs, and sports organizations. It presents AI-powered tactical analysis through interactive reports and pitch visualizations, alongside session scheduling and administration tools.",
     featured: true,
     metrics: [
       { value: "12+", label: "Interactive reports" },
-      { value: "5", label: "Permissioned roles" },
-      { value: "EN / AR", label: "Interface languages" },
+      { value: "5", label: "User roles" },
+      { value: "EN / AR", label: "Bilingual interfaces" },
     ],
     tech: [
       "React 19",
@@ -107,24 +107,24 @@ export const projects: Project[] = [
       "i18next",
     ],
     highlights: [
-      "End-to-end portal with five-role RBAC and route-level protection",
-      "Custom tactical pitch renderer with composable analysis layers",
-      "12+ interactive reports including Formation, Pressure, and Movement Relations",
-      "Bulk ZIP report ingestion via AWS S3 presigned URLs",
-      "Bilingual EN/AR with RTL and full dark/light theming",
+      "Built the portal frontend with access controls for five roles and protected routes.",
+      "Created a tactical pitch renderer with reusable layers for different types of analysis.",
+      "Delivered 12+ interactive reports, including Formation, Pressure, and Movement Relations.",
+      "Built bulk ZIP report uploads using AWS S3 presigned URLs.",
+      "Added English/Arabic support, right-to-left layouts, and light and dark themes.",
     ],
     links: [
-      { label: "Landing", href: "https://tactisport.ai/en" },
-      { label: "Platform", href: "https://app.tactisport.ai/" },
+      { label: "Visit website", href: "https://tactisport.ai/en" },
+      { label: "Open platform", href: "https://app.tactisport.ai/" },
     ],
     screenshots: [
       {
         src: "/projects/tactisport/landing-hero-hd.png",
-        alt: "TactiSport marketing landing page hero",
+        alt: "TactiSport homepage introduction to its football analytics platform",
       },
       {
         src: "/projects/tactisport/landing-reports-hd.png",
-        alt: "TactiSport landing tactical results studio demo",
+        alt: "TactiSport homepage demonstration of the tactical results studio",
       },
       {
         src: "/projects/tactisport/football-analytics-hd.png",
@@ -155,13 +155,13 @@ export const projects: Project[] = [
   {
     id: "section",
     title: "SECTION",
-    tagline: "Cinematic furniture showroom & inquiry platform",
+    tagline: "A bilingual furniture showroom with an interactive photo hero",
     description:
-      "Bilingual website for an Egyptian furniture and interior fit-out brand, combining an interactive Three.js hero, collection galleries, project stories, and a guided inquiry experience.",
+      "An English/Arabic website for an Egyptian furniture and interior fit-out brand. Visitors can explore a Three.js photo hero, browse collections and project stories, and describe their needs through a guided inquiry form.",
     featured: true,
     metrics: [
-      { value: "EN / AR", label: "Interface languages" },
-      { value: "WebGL", label: "Interactive 3D showroom" },
+      { value: "EN / AR", label: "Bilingual interfaces" },
+      { value: "WebGL", label: "Interactive photo hero" },
       { value: "Responsive", label: "Desktop & mobile layouts" },
     ],
     tech: [
@@ -172,20 +172,20 @@ export const projects: Project[] = [
       "Three.js",
     ],
     highlights: [
-      "Built an interactive Three.js photo hero with reduced-motion, low-data, and WebGL fallbacks",
-      "Delivered responsive English and Arabic layouts with RTL navigation and mobile collection browsing",
-      "Created reusable collection galleries and project stories with client and collaborator attribution",
-      "Built a guided inquiry interface with client-side validation and consent handling",
-      "Implemented lead-management screens for contact status tracking and internal notes",
-      "Added localized metadata, canonical language alternates, and structured data for public pages",
+      "Built the Three.js photo hero with fallbacks for reduced motion, low-data settings, and unavailable WebGL.",
+      "Created responsive English/Arabic layouts, including right-to-left navigation and mobile collection browsing.",
+      "Built reusable collection galleries and project stories with client and collaborator credits.",
+      "Developed the inquiry form interface with client-side validation and consent controls.",
+      "Built lead-management screens for contact status and internal notes.",
+      "Added localized metadata, canonical and language-alternate links, and structured data to public pages.",
     ],
     links: [
-      { label: "Visit Website", href: "https://section-furniture.com/en" },
+      { label: "Visit website", href: "https://section-furniture.com/en" },
     ],
     screenshots: [
       {
         src: "/projects/section/landing-hero-hd.png",
-        alt: "SECTION English homepage with a floating photo gallery and Spaces revealed in light headline",
+        alt: "SECTION English homepage with a floating photo gallery and the headline Spaces revealed in light",
       },
       {
         src: "/projects/section/landing-collections-hd.png",
@@ -201,7 +201,7 @@ export const projects: Project[] = [
       },
       {
         src: "/projects/section/inquiry-hd.png",
-        alt: "SECTION inquiry first step with selectable furniture and interior project categories",
+        alt: "First step of the SECTION inquiry form, with furniture and interior project categories",
       },
       {
         src: "/projects/section/landing-ar-hd.png",
@@ -212,13 +212,13 @@ export const projects: Project[] = [
   {
     id: "ticketing",
     title: "Printer Maintenance Ticketing",
-    tagline: "Field-service ops for Big Data Egypt",
+    tagline: "Maintenance tickets and field-service workflows",
     description:
-      "Multi-role ticketing platform coordinating managers, field engineers, and operators across clients, branches, and machines - including regular maintenance visits and spare parts.",
+      "A ticketing platform for Big Data Egypt's managers, field engineers, and operators. It connects repair tickets to clients, branches, and machines, with tools for scheduled maintenance visits and spare-parts tracking.",
     metrics: [
-      { value: "3", label: "Role portals" },
+      { value: "3", label: "Role-based portals" },
       { value: "4", label: "Operations modules" },
-      { value: "RLS", label: "Data security" },
+      { value: "RLS", label: "Row-level access" },
     ],
     tech: [
       "React",
@@ -231,15 +231,15 @@ export const projects: Project[] = [
       "PDF export",
     ],
     highlights: [
-      "Role-based portals for managers, engineers, and operators with Supabase RLS",
-      "Ticket lifecycle with assignment RPCs and hierarchy-aware machine management",
-      "Regular visits module with scheduling, overdue locking, and PDF reports",
-      "Spare-parts catalog and per-ticket tracking",
-      "Operational dashboards with live metrics and Excel migration tooling",
+      "Built portals for managers, engineers, and operators, with Supabase row-level security.",
+      "Implemented ticket assignment through database functions and organized machines by client and branch.",
+      "Built maintenance-visit scheduling, overdue locking, and PDF reports.",
+      "Created a spare-parts catalog with per-ticket tracking.",
+      "Developed dashboards with live operational metrics and tools to migrate Excel records.",
     ],
     links: [
       {
-        label: "GitHub",
+        label: "GitHub repository",
         href: "https://github.com/Ahmedsultan09/ticketing-system",
       },
     ],

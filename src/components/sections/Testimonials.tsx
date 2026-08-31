@@ -6,15 +6,15 @@ export function Testimonials() {
   return (
     <Section id="testimonials" className="section-rule testimonials-section">
       <div className="section-heading-grid">
-        <p className="section-kicker">04 / Teams & Testimonials</p>
+        <p className="section-kicker">04 / Teams</p>
         <div>
           <h2 className="section-title">
-            Good products are
-            <span className="font-editorial italic text-accent-strong"> team efforts.</span>
+            The teams I have
+            <span className="font-editorial italic text-accent-strong"> worked with.</span>
           </h2>
           <p className="section-intro">
-            Experience collaborating with product, backend, design, and operations teams
-            across SaaS, analytics, education, and field-service products.
+            I work with designers, backend engineers, and product and operations teams
+            to turn designs and requirements into working interfaces.
           </p>
         </div>
       </div>
@@ -37,7 +37,7 @@ export function Testimonials() {
       )}
 
       <div className="team-strip" aria-label="Selected teams">
-        <p>Selected Teams</p>
+        <p>Selected teams</p>
         <ul>
           {selectedTeams.map((team) => (
             <li key={team}>{team}</li>

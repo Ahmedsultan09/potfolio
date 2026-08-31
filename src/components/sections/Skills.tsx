@@ -5,14 +5,15 @@ export function Skills() {
   return (
     <Section id="skills" className="section-rule">
       <div className="section-heading-grid">
-        <p className="section-kicker">03 / Capabilities</p>
+        <p className="section-kicker">03 / Skills</p>
         <div>
           <h2 className="section-title">
-            A toolkit for
-            <span className="font-editorial italic text-accent-strong"> product depth.</span>
+            Tools behind
+            <span className="font-editorial italic text-accent-strong"> the work.</span>
           </h2>
           <p className="section-intro">
-            Frontend craft backed by product architecture, data fluency, and systems thinking.
+            React and TypeScript are central to my work, alongside tools for mobile apps,
+            API integration, data visualization, and English/Arabic interfaces.
           </p>
         </div>
       </div>

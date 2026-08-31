@@ -7,9 +7,9 @@ export function Courses() {
     <Section id="courses" className="section-rule pt-0">
       <div className="learning-panel">
         <div>
-          <p className="section-kicker">05 / Continuous Learning</p>
+          <p className="section-kicker">05 / Learning</p>
           <h2 className="mt-5 max-w-xl font-editorial text-5xl leading-[0.98] sm:text-6xl">
-            Stay curious. Keep shipping.
+            Courses behind the practice.
           </h2>
         </div>
 
