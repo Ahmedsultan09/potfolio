@@ -153,6 +153,63 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "section",
+    title: "SECTION",
+    tagline: "Cinematic furniture showroom & inquiry platform",
+    description:
+      "Bilingual website for an Egyptian furniture and interior fit-out brand, combining an interactive Three.js hero, collection galleries, project stories, and a guided inquiry experience.",
+    featured: true,
+    metrics: [
+      { value: "EN / AR", label: "Interface languages" },
+      { value: "WebGL", label: "Interactive 3D showroom" },
+      { value: "Responsive", label: "Desktop & mobile layouts" },
+    ],
+    tech: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS 4",
+      "Three.js",
+    ],
+    highlights: [
+      "Built an interactive Three.js photo hero with reduced-motion, low-data, and WebGL fallbacks",
+      "Delivered responsive English and Arabic layouts with RTL navigation and mobile collection browsing",
+      "Created reusable collection galleries and project stories with client and collaborator attribution",
+      "Built a guided inquiry interface with client-side validation and consent handling",
+      "Implemented lead-management screens for contact status tracking and internal notes",
+      "Added localized metadata, canonical language alternates, and structured data for public pages",
+    ],
+    links: [
+      { label: "Visit Website", href: "https://section-furniture.com/en" },
+    ],
+    screenshots: [
+      {
+        src: "/projects/section/landing-hero-hd.png",
+        alt: "SECTION English homepage with a floating photo gallery and Spaces revealed in light headline",
+      },
+      {
+        src: "/projects/section/landing-collections-hd.png",
+        alt: "SECTION collections overview showing wall cladding, kitchens, and dressing rooms",
+      },
+      {
+        src: "/projects/section/landing-process-hd.png",
+        alt: "SECTION process carousel showing the concept and briefing stage with navigation controls",
+      },
+      {
+        src: "/projects/section/project-story-hd.png",
+        alt: "SECTION SODIC project story with interior photography and collaborator attribution",
+      },
+      {
+        src: "/projects/section/inquiry-hd.png",
+        alt: "SECTION inquiry first step with selectable furniture and interior project categories",
+      },
+      {
+        src: "/projects/section/landing-ar-hd.png",
+        alt: "SECTION Arabic homepage with right-to-left navigation and the interactive photo hero",
+      },
+    ],
+  },
+  {
     id: "ticketing",
     title: "Printer Maintenance Ticketing",
     tagline: "Field-service ops for Big Data Egypt",

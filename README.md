@@ -5,7 +5,7 @@ Colorful, motion-led personal portfolio built with React, TypeScript, Tailwind C
 ## Features
 
 - Three.js hero with shader-framed portrait and gradient atmosphere
-- Featured projects: TactiSport, Maraqez, Printer Maintenance Ticketing
+- Selected projects: LeadsMart, TactiSport, SECTION, Printer Maintenance Ticketing
 - Experience timeline including TactiSport (part-time)
 - Dark / light theme, SEO meta tags, accessible landmarks
 - Content driven from `src/data/*`
@@ -46,6 +46,12 @@ npm run preview
 | Project screenshots | `public/projects/**` |
 
 ## Screenshots
+
+SECTION uses six desktop captures from a local production preview: the English
+hero, collections overview, process carousel, SODIC project story, inquiry first
+step, and Arabic hero. The images live in `public/projects/section/` and appear
+in that order. Mobile hero captures are separate review assets, not carousel
+slides. No admin screens or submitted inquiry data are included.
 
 Refresh project media with:
 

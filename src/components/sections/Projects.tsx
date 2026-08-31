@@ -142,7 +142,7 @@ export function Projects() {
             <span className="font-editorial italic text-accent-strong"> proof,</span> not polish alone.
           </h2>
           <p className="section-intro">
-            Production work across advertising, football analytics, and field operations.
+            Production work across advertising, football analytics, furniture showrooms, and field operations.
             Each product solves a different kind of complexity.
           </p>
         </div>
