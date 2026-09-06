@@ -43,7 +43,7 @@ export const projects: Project[] = [
       "Migrated and redesigned the ads-manager frontend with reusable components and lazy-loaded routes.",
       "Built lead dashboards, campaign flows, and performance analytics for advertisers and internal teams.",
       "Added role-based navigation and permission checks for product screens and actions.",
-      "Shipped a React Native and Expo app with nearly all of the web platform's features.",
+      "Built a React Native and Expo companion app for the web platform's workflows.",
       "Built English/Arabic navigation and right-to-left layouts across key product flows.",
     ],
     links: [
