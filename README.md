@@ -1,86 +1,73 @@
-# Ahmed Sultan — Frontend Engineering Portfolio
+# Ahmed Sultan — Frontend Developer Portfolio
 
-A selection from Ahmed Sultan's work across landing pages, portals, dashboards, and mobile apps, with project screenshots, contribution summaries, experience, skills, and a downloadable CV. Built with React, TypeScript, and Vite.
+An editorial portfolio for React/TypeScript SaaS work: a concise homepage and five shareable case studies. Cream, charcoal, and lime in light and dark themes.
 
-## Features
+## Local development
 
-- Selected highlights, in order: LeadsMart, TactiSport, SECTION, and Printer Maintenance Ticketing
-- Screenshot carousels with product details, technologies, and individual contributions
-- Experience at LeadsMart, TactiSport, Big Data Egypt for Systems, and Lnkr
-- Light and dark themes, responsive layouts, a CSS-framed portrait, and reduced-motion support
-- Keyboard-accessible navigation, descriptive image text, and search and social-preview metadata
-- Profile, project, experience, skill, and course data in `src/data/*`
+Use Node.js 22 or newer.
 
-## Selected work
-
-These projects highlight different domains and interface types from a broader body of work; they are not a complete project list.
-
-- **LeadsMart:** Campaign management, lead dashboards, and analytics across web and mobile.
-- **TactiSport:** Interactive football reports, tactical pitch visualization, and role-based portal interfaces.
-- **SECTION:** Frontend work for an English/Arabic furniture showroom, including a Three.js photo hero, galleries, project stories, and inquiry forms.
-- **Printer Maintenance Ticketing:** Repair tickets, maintenance visits, spare-parts tracking, and role-based service dashboards.
-
-## Tech stack
-
-- React 19 + Vite 6 + TypeScript
-- Tailwind CSS 3
-- Framer Motion
-- Lucide icons
-
-Three.js is used in the featured SECTION project, not in the portfolio's own hero.
-
-## Getting started
-
-```bash
-npm install
+```sh
+npm ci
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173).
+For the actual prerendered production output:
 
-Check the code, create a production build, and preview it locally:
-
-```bash
-npm run lint
+```sh
 npm run build
 npm run preview
 ```
 
-## Content map
+The preview runs at http://127.0.0.1:4173 and serves real static pages and 404 responses. It is the preferred target for review and testing.
 
-| Content | File |
-|---------|------|
-| Profile, social links, and CV link | `src/data/profile.ts` |
-| Experience | `src/data/experience.ts` |
-| Projects | `src/data/projects.ts` |
-| Skills | `src/data/skills.ts` |
-| Courses | `src/data/courses.ts` |
-| Teams and approved testimonials | `src/data/testimonials.ts` |
-| Section headings and supporting copy | `src/components/sections/` |
-| Search and social-preview descriptions | `index.html` |
-| Downloadable CV | `public/ahmed-sultan.pdf` |
-| Portrait | `public/images/portrait.jpg` |
-| Project screenshots | `public/projects/**` |
+## Pages and content
 
-## Screenshots
+- Homepage: TactiSport → LeadsMart → ScanFit; SECTION and maintenance ticketing as supporting work.
+- Case studies: `/work/tactisport`, `/work/leadsmart`, `/work/scanfit`, `/work/section`, `/work/ticketing`.
+- Typed summaries, evidence captions, case-study sections, and project links: `src/data/case-studies.ts`.
+- Existing original screenshot records: `src/data/projects.ts`. These are reused by the case studies.
+- Shared employment history: `src/data/experience.ts`.
+- Contact details and default CV URL: `src/data/profile.ts`.
+- Page components: `src/components/Portfolio.tsx`; visual tokens and responsive layouts: `src/index.css`.
 
-Project images are stored under `public/projects/`; each carousel's order and image descriptions are defined in `src/data/projects.ts`.
+The old courses and testimonials data are retained but are not homepage sections. Existing section anchors remain available; `#testimonials` leads to experience and `#courses` to capabilities.
 
-SECTION uses six desktop captures from a local production preview: the English
-hero, collections overview, process carousel, SODIC project story, inquiry first
-step, and Arabic hero. The images live in `public/projects/section/` and appear
-in that order. Mobile hero captures are separate review assets, not carousel
-slides. No admin screens or submitted inquiry data are included.
+## Rendering and assets
 
-The repository includes an older capture helper:
+Vite builds the browser bundle and a build-only React server entry. `scripts/prerender.mjs` renders the six public pages and a 404 page, with unique titles, descriptions, canonical URLs, social metadata, and a sitemap. The browser hydrates the same components; no runtime server is deployed.
 
-```bash
-npx playwright install chromium
-node scripts/capture-screenshots.mjs
+`npm run assets` creates responsive WebP images and six 1200×630 social previews. Generated media are ignored by Git and regenerated during builds. The original screenshots and their redactions remain unchanged. ScanFit uses a labeled workflow illustration, not a fabricated screenshot.
+
+Fonts are bundled locally. Menus and image viewers use native dialogs with Escape handling and focus restoration. Theme persistence is optional: blocked local storage does not prevent rendering or toggling themes.
+
+## Verification
+
+```sh
+npm run lint
+npm run build
+npm run verify
 ```
 
-Review its URLs and output paths before running it: they do not match every image currently used by the portfolio. Keep private account data out of any replacement screenshots.
+Static verification checks every prerendered route, unique titles and IDs, metadata, local links and fragments, image variants, content corrections, structured data, and not-found rendering. Results are written to `artifacts/static-verification.json`.
 
-## License
+Once browser access is available, with the preview running:
 
-MIT
+```sh
+npx playwright install chromium
+npm run verify:browser
+```
+
+The browser suite covers the six pages at 360, 390, 768, 1440, and 1920 pixels in both themes, axe accessibility checks at 390/1440 pixels, theme persistence, storage failure, keyboard dialogs, navigation, no-JavaScript content, and 404 responses. It writes screenshots and a separate browser report under `artifacts/`. Optionally set `CHROME_PATH` to an installed Chrome executable.
+
+Browser verification was **not run during implementation** because the browser security check was unavailable. No visual, interaction, screenshot, Lighthouse, or CLS results are claimed. Finish those checks, including manual 200% browser zoom and screen-reader review, before publishing. Lighthouse targets are mobile performance ≥90, accessibility ≥95, and CLS ≤0.1; record the device/throttling configuration and actual results.
+
+## Publication checklist
+
+- Completed: `public/ahmed-sultan.pdf` contains the owner-supplied September React/SaaS CV. Its one-page layout and text were reviewed, and the public file is byte-identical to the supplied PDF. The existing download URL is unchanged.
+- Complete the browser and Lighthouse review above; inspect all four homepage desktop/mobile light/dark views and the project galleries.
+- Deploy only after review. The implementation branch is `codex/portfolio-astra-redesign`, based on `origin/master`; this work has not been merged or published.
+- Keep the existing Vercel project `ahmed-sultan-portfolio`, which serves `ahmedsultan.is-a.dev`. The similarly named `potfolio` project is not the custom-domain project.
+- Web Analytics was enabled on the correct existing Hobby project on 6 September 2026. The React integration activates only on the production custom domain, so local and preview visits do not pollute traffic. Verify collection after deployment; no production collection has been tested.
+- Review visitors, referrers, and case-study pages over comparable weekly periods. Page views are not CV downloads, contact conversions, or proof of recruiter interest.
+
+No backend, contact form, CMS, framework migration, or paid analytics upgrade was added.

@@ -1,15 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
+import { StrictMode } from "react";
+import { createRoot, hydrateRoot } from "react-dom/client";
+import App from "./App";
+import "@fontsource/space-grotesk/latin-400.css";
+import "@fontsource/space-grotesk/latin-500.css";
+import "@fontsource/space-grotesk/latin-600.css";
+import "@fontsource/space-grotesk/latin-700.css";
+import "@fontsource/instrument-serif/latin-400-italic.css";
 import "./index.css";
-
-const savedTheme = localStorage.getItem("theme");
-const theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "light";
-document.documentElement.classList.toggle("dark", theme === "dark");
-document.documentElement.style.colorScheme = theme;
-
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+const root = document.getElementById("root")!;
+const app = (
+  <StrictMode>
+    <App pathname={window.location.pathname} />
+  </StrictMode>
 );
+if (root.firstElementChild) hydrateRoot(root, app);
+else createRoot(root).render(app);
